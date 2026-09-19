@@ -1,0 +1,286 @@
+//cse111
+// Assignment 1
+//1
+import java .util.Scanner;
+public class assignment1{
+  public static void main(String [] args){
+  Scanner sc=new Scanner (System.in);
+  System.out.println("Enter the intput:");
+ double sum=0;
+ int maxx=0;
+ int min=2^32;
+ double avrg=0.0;
+ int count =0;
+  for (int k=0; k<10;k++){
+  int aa=sc.nextInt();
+  if(aa >0 &&  aa%2!=0){
+  sum=sum+aa;
+  if(aa>maxx){
+  maxx=aa;
+  }
+  if(aa<min){
+  min=aa;
+  }
+ count++; }
+  avrg=sum/count;
+  }
+  if(count>0){
+  System.out.println("Sum = "+sum);
+  System.out.println("Minimum = "+min);
+  System.out.println("Maximum = "+maxx);
+  System.out.println("Average  = "+avrg);}
+  else{
+   System.out.println("No odd positive numbers found");
+  }
+  }
+}
+x
+//2
+import java .util.Scanner;
+public class assignment1{
+  public static void main(String [] args){
+  Scanner sc=new Scanner (System.in);
+  System.out.println("Enter the 1st intput:");
+  int aa=sc.nextInt();
+   System.out.println("Enter the 2nd intput:");
+  int bb=sc.nextInt();
+  int anco=0;
+  int strt=0;
+  int stp=0;
+  if(aa<bb){
+  strt=aa;
+  stp=bb;
+ }
+  else {
+  strt=bb;
+  stp=aa;
+  }
+  for (int m=strt;m<stp;m++){
+    int count=0;
+    for (int n=1;n<=m;n++){
+    if (m%n==0){
+    count++;
+     }
+    }
+    if(count==2){
+      anco++;}
+  }
+    System.out.println("There are "+anco+" prime numbers between "+aa  +" and "+bb);
+    
+ }
+}
+//3
+import java .util.Scanner;
+public class assignment1{
+  public static void main(String [] args){
+  Scanner sc=new Scanner (System.in);
+  System.out.println("Enter the 1st intput:");
+   String aa=sc.nextLine();
+   System.out.println("Enter the 2nd intput:");
+  String bb=sc.nextLine();
+ int ln =aa.length();
+int lg=bb.length();
+ int summ=0;
+ for (int k=0;k<ln;k++){
+ char ch= aa.charAt(k);
+ int num=(int)ch;
+ if((num>= 60 && num<=90)|| (num >=97 && num <= 122)){
+ summ=summ+num;
+ }
+ }
+ for (int m=0;m<lg;m++){
+ char chh=bb.charAt(m);
+ int numm=(int)chh;
+ if((numm>= 60 && numm<=90)|| (numm >=97 && numm <= 122)){
+ summ=summ+numm;
+ }
+ }
+  System.out.println(aa +" "+ bb);
+  
+   System.out.println(summ); 
+ }
+}
+
+//4
+import java .util.Scanner;
+public class assignment1{
+  public static void main(String [] args){
+  Scanner sc=new Scanner (System.in);
+  System.out.println("Enter the 1st intput:");
+   String aa=sc.nextLine();
+   int ln =aa.length();
+String sum="";
+ for (int i=0;i<ln;i++){
+ char ch= aa.charAt(i);
+ int num =(int)ch;
+ if(num>=97  &&  num<=122){
+   int nu =num-1;
+char chh=(char)nu;
+sum=sum+chh;
+ }
+ if (num==97){
+sum=sum+(char)122;
+ }
+ }
+ System.out.println(sum);
+ }
+}
+//5
+import java.util.Scanner;
+public class   Assignment1num5{
+  public static void main (String [] args){
+  Scanner sc =new Scanner (System.in);
+  System.out.println("Enter the length of the array  :");
+  int meh=sc.nextInt();
+  int [] roshni= new int [meh];
+  int ln= roshni.length;
+  for (int k=0;k<ln;k++){
+  roshni[k]=sc.nextInt();
+  }
+  for (int b=0;b<ln;b++){
+    for (int c=b+1;c<ln;c++){
+    int ttem=roshni[b];
+    roshni[b]=roshni[c];
+    roshni[c]=ttem;
+    
+    }
+  }
+  for (int x=0;x<ln;x++){
+  System.out.print(roshni[x]+ " ");
+  }
+  System.out.println();
+  }
+}
+//6
+import java.util.Scanner;
+public class   Assignment1num6{
+  public static void main (String [] args){
+  Scanner sc =new Scanner (System.in);
+  System.out.println("N :");
+  int meh=sc.nextInt();
+  int [] roshni= new int [meh];
+  int ln= roshni.length;
+  for (int k=0;k<ln;k++){
+  roshni[k]=sc.nextInt();
+  }
+  for (int m=0;m<ln;m++){
+    int count=1;
+    for (int n=m+1;n<ln;n++){
+      if(roshni[m]==roshni[n]){
+      count++;
+      }
+    }
+    boolean check=false;
+    for (int p=0;p<m;p++){
+      if (roshni[m]==roshni[p]){
+      check =true;
+      break;
+      }
+    }
+    if (!check){
+System.out.println(roshni[m]+"-"+count+"times");
+ }
+  }
+  }
+}
+//7
+import java.util.Scanner;
+public class   Assignment1num7{
+  public static void main (String [] args){
+  Scanner sc =new Scanner (System.in);
+  System.out.println("N :");
+  int meh=sc.nextInt();
+  double [] roshni= new double [meh];
+  int ln= roshni.length;
+   System.out.println("Please enter the elements of the array:");
+  for (int k=0;k<ln;k++){
+  roshni[k]=sc.nextDouble();
+  }
+double [] numb= new double[meh];
+int count=0;
+if(meh>0){
+numb[count]=roshni[0];
+count++;
+}
+for(int m=1;m<meh;m++){
+  if(roshni[m]!=roshni[m-1]){
+    numb[count]=roshni[m];
+    count++;
+}
+  }
+int fariha=meh-count;
+System.out.print("New Array:");
+for (int n=0;n<count;n++){
+System.out.print(numb[n]);
+if(n<count-1){
+System.out.print(" ");
+}
+}
+System.out.println();
+System.out.println("Removed Elements :"+ fariha);
+}
+}
+//8
+import java .util.Scanner;
+public class assignment1{
+  public static void main(String [] args){
+  Scanner sc=new Scanner (System.in);
+  System.out.println("row:");
+  int aa=sc.nextInt();
+   System.out.println(" column:");
+  int bb=sc.nextInt();
+int [] [] array2=new int [aa][bb];
+for (int k=0;k<aa;k++){
+  for (int m=0;m<bb;m++){
+  array2[k][m]=sc.nextInt();
+  }
+}
+System.out.println("2D Array:");
+for (int n=0;n<array2.length;n++){
+  for (int p=0;p<array2[n].length;p++){
+  System.out.print(array2[n][p]+" ");
+  }
+  System.out.println();
+}
+  
+int [] array1=new int [aa*bb];
+int value=0;
+for(int s=0;s<array2.length;s++) {
+  for (int y=0;y<array2[s].length;y++){
+  array1[value++]=array2[s][y];
+  }
+}
+System.out.println("1D Array:");
+int ln=array1.length;
+for (int e=0;e<ln;e++){
+System.out.print(array1[e]+" ");
+}
+  System.out.println();
+  }
+}
+//9
+public class assignment1{
+  public static void main(String [] args){
+    int [ ] [ ] A ={{1, 0, 0},
+                        {0, 1, 0},
+                        {0, 0, 1}};
+boolean checking=true;
+for (int m=0;m<A.length;m++){
+  for (int n=0;n<A[m].length;n++){
+    if(( A[m][n]!=0 && m!=n  )||( A[m][n]!=1 && m==n )){
+    checking =false;
+      break;
+      }
+   }
+ if(!checking){
+  break;
+  }
+}
+if (checking==true){
+System.out.println("Indentity Matrix");
+}
+else {
+System.out.println("Not an Indentity Matrix");
+}
+  }
+}

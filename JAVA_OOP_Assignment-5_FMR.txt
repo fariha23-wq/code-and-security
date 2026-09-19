@@ -1,0 +1,178 @@
+//2
+public class Playlist{
+String name;
+Song start;
+Song store;
+
+
+public Playlist(String dd){
+name=dd;
+System.out.println(dd+ " created.");
+}
+//3
+public void info(){
+System.out.println(name+" has the following songs: ");
+if(start== null){
+System.out.println("No songs in "+name+".");
+}
+else {
+ store= start;
+int cal=0;
+while (store!=null){
+System.out.println("Song-"+(cal+1));
+store.songInfo();
+store=store.next;
+cal++;
+}
+}
+}
+//4
+public void addSong(Song ss){
+if(start == null){
+start =ss;
+System.out.println(ss.snm+" added to "+name+".");
+}
+else {
+ store= start;
+ while(store.next!= null){
+ store=store.next;
+ } 
+ store.next=ss;
+System.out.println(ss.snm+" added to "+name+".");
+  }
+}
+//5
+public void addSong(Song xx, int pos){
+if(pos==0|| start== null){
+xx.next=start;
+start=xx;
+System.out.println(xx.snm+" added to "+name+".");
+}
+else{
+store =start;
+int cal=0;
+while(store!= null && cal<pos-1){
+ store=store.next;
+ cal++;
+}
+ if(store==null){
+ System.out.println("Cannot add song to Index "+pos);
+ }
+ else{
+ xx.next=store.next;
+ store.next=xx;
+ System.out.println(xx.snm+" added to "+name+".");
+}
+  }
+}
+//6
+public void playSong(String sng){
+boolean check=false;
+store=start;
+
+while(store!=null){
+ if(sng.equals(store.snm)){
+ check=true;
+ break;
+}
+store=store.next;
+}
+if(check){
+System.out.println("Playing " +store.snm+" by " +store.anm);
+}
+else{
+System.out.println(sng+" not fond in playlist "+name);
+}
+}
+//7
+public void playSong(int ps){
+store=start;
+boolean ck=false;
+int cal=0;
+while(store.next!=null){
+if(ps==cal){
+System.out.println("Playing " +store.snm+" by "+store.anm);
+ck=true;
+break;
+
+}
+  
+store=store.next;
+cal++;
+ }
+if(!ck){
+System.out.println("Song at Index "+ps+" not found in "+name+".");
+}
+
+}
+ //8
+public void deleteSong(String sname){
+boolean dlt=false;
+if(start==null){
+System.out.println(sname+" not found in "+name+".");
+}
+if(start.snm.equals(sname)){
+
+start=start.next;
+System.out.println(sname+" deleted from "+name+ ".");
+dlt=true;
+}
+
+store=start;
+while(store.next!=null){
+if(store.next.snm.equals(sname)){
+System.out.println(sname+" deleted from "+name+".");
+store.next=store.next.next;
+dlt=true;
+ break;
+}
+store=store.next;
+}
+if(!dlt){
+System.out.println(sname+" not found in "+name+".");
+}
+
+
+}
+//9
+public int totalSong(){
+int cal=0;
+store=start;
+while(store!=null){
+cal++;
+store=store.next;
+}
+return cal;
+}
+//10
+public void merge(Playlist jj){
+  if(start == null){
+  start=jj.start;
+  }
+  else{
+store=start;
+while(store.next!=null){
+store=store.next;
+}
+store.next=jj.start;
+System.out.println("Merge Completed!");
+}
+}
+}
+//1
+public class Song {
+String snm;
+String anm;
+int tim;
+Song next;
+
+public Song(String aa,String bb,int cc){
+snm=aa;
+anm=bb;
+tim=cc;
+}
+public void songInfo(){
+System.out.println("Title: "+snm+",  Artist: "+anm);
+System.out.println("Length: "+tim+" minutes");
+}
+}

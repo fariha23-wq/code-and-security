@@ -1,0 +1,285 @@
+
+//1
+
+public class BrowserHistory{
+public static int count;
+public  String faltu_sys;
+public  String [] brac_r;
+public  int plag_r;
+public  int thik_k;
+
+public BrowserHistory(int mani_na){
+thik_k=mani_na;
+brac_r=new String[mani_na];
+
+  }
+public  void showHistory () {
+  if(count==0){
+  System. out. println ("No web pages visited yet .");
+  }
+  else{
+  System. out. println ("Browser History: ");
+  int agun=0;
+  while(agun<plag_r){
+  System.out.println(brac_r[agun]);
+  agun++;
+  }
+  }
+}
+public  void visitWeb(String kora_ucht){
+  
+  if(count<3){
+    count++;
+  brac_r[plag_r]=kora_ucht;
+ 
+  plag_r++;
+  System. out. println ("Visited: ");
+  System. out. println (kora_ucht);
+  }
+  else{
+    System. out. println ("History is full. ");
+   System. out. println ("Cannot visit ");
+  System. out. println (kora_ucht+" web page. ");
+  }
+}
+public  void currentWeb(){
+  if(count==0){
+  System. out. println (" You have not visited any website yet! ");
+  }
+  else{
+  System. out. println ("Current web page:  ");
+  System. out. println (brac_r[count-1]);
+  }
+}
+public  void back(){
+count--;
+}
+}
+//2
+
+public class  CustomerService{
+public int i_wa;
+public String nt_jus;
+public String [] tice;
+public boolean docheck=true;
+public int tyr;
+public String tor;
+public int aa;
+
+
+public CustomerService(int ant){
+tyr=ant;
+tice=new String [ant];
+
+}
+public void addCustomer(String dicta){
+  if(i_wa<tyr){
+  tice[i_wa]=dicta;
+  i_wa++;
+  docheck=false;
+  System. out.println("Added: "+dicta);
+  }
+  else{
+  System. out.println("Queue is full. Cannot add "+dicta);
+  
+  }
+}
+public void serveCustomer(){
+  if(i_wa==0){
+  System.out.println("No customers to serve");
+  }
+  else{
+   System.out.println("Serving: "+tice[aa]);
+   aa++;
+   if(aa==tyr){
+   aa=0;
+   }
+ 
+//if(i_wa==0){docheck=true;}
+  i_wa--;
+    }
+  }
+}
+
+//3
+ public class Circle extends Shape
+ {
+    public int radius;
+    public double des_troy;
+   
+    public void area()
+    {
+      
+    des_troy=3.1416*radius*radius;
+    System. out.println("Area of "+name+" Circle: "+des_troy);
+   
+    }
+}
+
+//4
+public class Dog extends Animal{
+  public String name;
+  
+  public Dog(){
+  System.out.println(" The dog says hello!");
+  }
+  public String getName(){
+  return name;
+  }
+  public void updateSound(String peace){
+    super.sound=peace;
+
+  }
+}
+//5
+public class Cricket_Tournament extends Tournament{
+public int not;
+public String tyypp="No type";
+
+public Cricket_Tournament(){}
+public Cricket_Tournament(String rosh,int ni,String pap){
+
+  super(rosh);
+not=ni;
+tyypp=pap;
+}
+public String detail(){
+  String  roshni="";
+  
+  roshni+=
+    "Cricket Tournament Name: "+super.getName()+"\n"+
+    "Number of Teams: "+not+"\n"+
+    "Type: "+tyypp;
+ 
+  return roshni;
+}
+}
+
+public class Tennis_Tournament extends Tournament {
+public int pl;
+ 
+public Tennis_Tournament(String pap, int lagbe)
+{
+super(pap);
+pl=lagbe;
+}
+public String detail(){
+String fariha="";
+
+fariha+=
+  "Tennis Tournament Name: "+super.getName()+"\n"+
+"Number of Players: "+pl;
+
+return fariha;
+}
+
+}
+//6 
+public class Book extends Product{
+public String faltu_sys;
+public String tem_cng;
+
+public Book(int koro,String birok_to,int ten_sion,String ee,String ses_h){
+super(koro,birok_to,ten_sion);
+faltu_sys=ee;
+tem_cng=ses_h;
+  }
+public String printDetail(){
+String mehzabin="";
+mehzabin+= 
+  super.getIdTitlePrice()+"\n"+
+ " ISBN: "+ faltu_sys+" Publisher: "+tem_cng;
+
+return mehzabin;
+}
+}
+public class CD extends Product{
+public String cg_koi;
+public int jani_na;
+public String khu_zo;
+public CD(int ami,String code,int copy,String kori,int nai,String trust_me){
+super(ami,code,copy);
+cg_koi=kori;
+ jani_na=nai;
+ khu_zo=trust_me;
+}
+
+public String printDetail(){
+String rustam="";
+
+rustam+=
+  super.getIdTitlePrice()+"\n"+
+ " Band: "+cg_koi+" Duration: "+jani_na+" minutes Genre: "+ khu_zo;
+
+return rustam;
+}
+}
+//7
+public class CSEStudent extends Student{
+public int am_i;
+public static  String assign_four="CSE110, CSE111 ,CSE220 ,CSE221 ";
+public static int ecode_copy;
+public String trust_me;
+
+public void info(){
+super.info();
+}
+public CSEStudent(String kori, int nai){
+super(kori,nai);
+ecode_copy++;
+}
+
+public void addLabBasedCourse(String remove){
+  if(remove.equals("CSE230")){
+  System.out.println(" It is not a lab based course!");
+  } 
+  else{
+    super.courses+=remove+" ";
+  }
+}
+public static void details(){
+System.out.println("Total CSE Students: "+ecode_copy);
+System.out.println("Available Lab Based Courses: "+assign_four);
+}
+}
+//8
+public class Manager extends SportsPerson{
+public int  need_peace;
+
+public Manager(String if_come,String plag_again,String ii ,int swear){
+super(if_come,plag_again,ii);
+need_peace=swear;
+}
+public void printDetails(){
+System.out.println(super.getNameTeam());
+System.out.println("Team Role: "+super.role);
+System.out.println("Total Win: "+need_peace);
+System.out.println("Match Earning: "+(need_peace*1000)+"K");
+
+}
+}
+
+public class Player extends SportsPerson{
+public int trust_me;
+public int sir_plz;
+public int calcul;
+public double kk;
+public Player(String remove,String plag,String frm_my,int assig_n,int fo_ur){
+  super(remove,plag,frm_my);
+  trust_me=assig_n;
+  sir_plz=fo_ur;
+  }
+public void calculateRatio(){
+calcul=(trust_me*1000)+(sir_plz*10);
+super.earningPerMatch+=calcul;
+ kk=((double)trust_me/sir_plz);
+}
+public void  printDetails(){
+System.out.println(super.getNameTeam());
+  System.out.println("Team Role: "+super.role);
+System.out.println("Total Goal: "+trust_me+", Total Played: "+sir_plz);
+System.out.println("Goal Ratio: "+kk);
+System.out.println("Match Earning: "+super.earningPerMatch+" K");
+
+}
+}

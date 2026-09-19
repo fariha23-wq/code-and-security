@@ -1,0 +1,260 @@
+//Assignment 3
+//1
+public class BankAccount{
+public int an;
+public String type="Not Set";
+public String printDetails(){
+ return ("Account No: "+an)+"\n"+
+  ("Type: "+type );
+}
+public void setInfo(int ro, String sh){
+an=ro;
+type=sh;
+ System.out.println("Account information updated!");
+}
+}
+//2
+public class Shape{
+public String nm;
+public double ar;
+public String details(){
+return "Shape Name: "+nm +"\n"+
+     "Area: "+ar ;
+}
+public void setParameters(String aa, int bb){
+nm= aa;
+ar=3.1416*bb*bb;
+}
+public void setParameters(String cc, int dd, int ee){
+nm= cc;
+ar=0.5*dd*ee;
+}
+public void setParameters(String ff, double  gg,double hh){
+nm= ff;
+ar=gg*hh;
+}
+}
+//3
+public class Shelf{
+public int capacity;
+public int nb;
+public void showDetails(){
+System.out.println("Shelf capacity: "+capacity);
+System.out.println("Number of books: "+nb);
+}
+public void addBooks(int aa){
+   if(capacity==0){
+  System.out.println("Zero capacity. Cannot add books");
+  }
+    else if(nb+aa>capacity) {
+   
+  System.out.println("Exceeds capacity");
+ }
+
+else {
+    nb+=aa;
+  System.out.println(aa+" books added to shelf ");
+  }
+
+}
+}
+//4
+public class Student{
+public String nm="Not Set";
+public String dprt="CSE";
+public double cg;
+public int crt=9;
+public String ss="Not Set";
+
+public void showDetails(){
+System.out.println("Name: "+nm);
+System.out.println("Department: "+dprt);
+System.out.println("CGPA: "+cg);
+System.out.println("Credits: "+crt);
+System.out.println("Scholarship Status: "+ss);
+}
+public void updateDetails(String ro, double sh, int ni){
+nm=ro;
+cg=sh;
+crt=ni;
+}
+public void updateDetails(String fa, double ri){
+nm=fa;
+cg=ri;
+}
+public void updateDetails(String me, double hh, int za,String bin){
+nm=me;
+cg=hh;
+crt=za;
+dprt=bin;
+}
+public void checkScholarshipEligibility(){
+   if(cg>=3.5 && cg<3.7 && crt>10){
+    ss="Need-based scholarship";
+    System.out.println(nm+" is eligible for Need based scholarship");
+  }
+  else if(cg>=3.7 && crt>10){
+    ss=" Merit based scholarship";
+System.out.println(nm+" is eligible for Merit based scholarship");
+  }
+  else {
+  ss=" No scholarship ";
+  System.out.println(nm+" is not eligible for scholarship");
+  }
+}
+  
+}
+//5
+public class Library{
+public int capacity;
+public int tb;
+public String [] bl=new String[4];
+
+public void setBookCapacity(int ro){
+capacity=ro;
+}
+
+public void printDetail(){
+System.out.println("Maximum Capacity: "+capacity);
+System.out.println("Total Books: "+tb);
+System.out.println("Book list: ");
+for(int i=0;i<tb;i++){
+System.out.println(bl[i]);
+}
+}
+public void addBook(String sh){
+  if (tb>=capacity){
+  System.out.println("Exceeds maximum capacity. You can't add more than 3 books");
+  return;
+  }
+bl[tb]=sh;
+tb++;
+  System.out.println("Book '"+sh+"' added to the library ");
+}
+}
+
+//6
+public class TaxiLagbe{
+public String num;
+public String area;
+public int psngr;
+public String[] pl=new String [4];
+public int tk;
+public void printDetails(){
+System.out.println("Taxi number: "+ num);
+System.out.println("This taxi can cover "+area+" area");
+System.out.println("Total Passenger: "+psngr);
+System.out.println("Passenger Lists: ");
+for(int i=0;i<psngr;i++){
+System.out.print(pl[i]+" ");
+}
+System.out.println("\nTotal collected fare: "+tk+" Taka");
+}
+public void storeInfo(String aa, String bb){
+num=aa;
+area=bb;
+}
+public void addPassenger(String ro,int  sh){
+  if(psngr>=4){
+  System.out.println(" Taxi Full! No more passengers can be added");
+ return;
+  }
+pl[psngr]=ro;
+tk+=sh;
+psngr++;
+
+System.out.println("Dear "+ro+" ! Welcome to TaxiLagbe");
+}
+public void addPassenger(String meh, int za, String bin, int ni){
+  if(psngr<4){
+    addPassenger(meh, za);}
+  if (psngr<4){
+    addPassenger(bin , ni );}
+}
+}
+//7
+public class Cart{
+public int cartnum;
+public double disap;
+public double [] price=new double [3];
+public String [] nm= new String [3];
+public double totalprc;
+public int itmnum;
+public double cal;
+
+public  void create_cart(int ro){
+cartnum=ro;
+}
+public void cartDetails(){
+System.out.println("Your cart (c"+cartnum+") :");
+for (int s=0;s<itmnum;s++){
+System.out.println(nm[s]+" - "+price[s]);
+}
+System.out.println("Discount Applied: "+disap+"%");
+System.out.println("Total price: "+totalprc);
+}
+public void addItem(String fa, double ri){
+  if (itmnum>=3){
+  System.out.println("You already have 3 items on your cart");
+  return;
+  }
+nm[itmnum]=fa;
+price[itmnum]=ri;
+itmnum++;
+totalprc+=ri;
+System.out.println(fa+" added to cart "+cartnum+".");
+System.out.println("You have "+itmnum+" item(s) in your cart now.");
+}
+public void addItem( double meh, String za){
+if (itmnum>=3){
+  System.out.println("You already have 3 items on your cart");
+  return;
+  }
+nm[itmnum]=za;
+price[itmnum]=meh;
+itmnum++;
+totalprc+=meh;
+System.out.println(za+" added to cart "+cartnum+".");
+System.out.println("You have "+itmnum+" item(s) in your cart now.");
+}
+public void giveDiscount(double runa){
+  disap=runa;
+  cal=totalprc*(runa/100);
+  totalprc=totalprc-cal;
+  }
+}
+//8
+public class Reader {
+public String nm="New user";
+public int cpcty;
+public String [] bknm= new String[3];
+public int bkc;
+
+public void readerInfo(){
+System.out.println("Name: "+nm);
+System.out.println("Capacity: "+cpcty);
+System.out.println("Books:");
+if (bkc==0){
+System.out.println("No books added yet");
+}
+else{
+for (int a=0;a<bkc;a++){
+System.out.println("Book "+(a+1)+": "+bknm[a]);
+}
+}
+}
+public void addBook(String roshni){
+  if(bkc<cpcty){
+bknm[bkc]=roshni;
+bkc++;
+  }
+  else {
+  System.out.println("No more capacity");
+  }
+}
+public String createReader(String fa, int ri){
+nm=fa;
+cpcty=ri;
+return "A new reader is created!";
+   }
+}
