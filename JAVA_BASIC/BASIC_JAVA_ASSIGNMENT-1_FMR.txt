@@ -1,0 +1,252 @@
+ASSIGNMENT-1
+ID=24321313
+
+10-
+public class assignment1{
+  public static void main(String [] args){
+   int hungry; //its valid
+   int 2AB ;// its invalid. variable can not be start with number
+   int 312.2;// its invalid .a variable can not be just number
+   int MOBILE ;// its valid
+   int "Ans";// its invalid . we can't use quotes("") in variable name
+   int $30;// its valid
+     int Yes/No; // its invalid. we can't use "/" this sign in a variable name
+     int student-id;// its invalid. we can't use "-" this sign in a variable name
+     int A+3; //its invalid .we can't use operators in a variable name
+     int 'X'; //its invalid .we can't use quotes('') in a variable name
+     int return ;//its invalid .we can't use any reserved keywords as a variable name
+      }
+} 
+
+Answer to the question -(11)
+
+(2.1) -
+public class assignment
+{
+  public static void main(String [] args)
+  {
+  int number=12;
+  System.out.println(number);
+  }
+}
+its output=12
+
+(2.2)-
+public class assignment
+{
+  public static void main(String [] args)
+  {
+  int number1=12;
+  int number2=6;
+  System.out.println(number1+number2);
+  }
+}
+its output=18
+
+(2.3)-
+public class assignment
+{
+  public static void main(String [] args)
+  {
+  int number1=12;
+  int number2=6;
+  System.out.println(number1*number2);
+  System.out.println(number1/number2);
+  }
+}
+its output=72    
+           2 
+(2.4)-
+public class assignment
+{
+  public static void main(String [] args)
+  {
+  double number1=12.0;
+  double number2=6.0;
+  System.out.println(number1);
+  System.out.println(number1+number2);
+  System.out.println(number1*number2);
+   System.out.println(number1/number2);
+  }
+}
+its output=12.0
+18.0
+72.0
+2.0
+
+2.5-
+public class assignment
+{
+  public static void main(String [] args)
+  {
+  double number1=12.0;
+  int number2=6;
+  System.out.println(number1);
+  System.out.println(number1+number2);
+  System.out.println(number1*number2);
+   System.out.println(number1/number2);
+  }
+}
+its output=12.0
+18.0
+72.0
+2.0
+
+2.6-
+its output=1625
+1625
+1625
+
+12-
+public class assignment1{
+  public static void main(String [] args){
+    int r=4;
+    double area=3.1416*r*r;
+    double circumference=2*3.1416*r;
+    System.out.println("area is "+area);
+    System.out.println("circumference is "+circumference);
+  }
+}
+its output=area is 50.2656
+circumference is 25.1328
+
+13-
+public class assignment1{
+  public static void main(String [] args){
+    int a=1234;
+    int num3=a/10;
+    int thirdNumber=num3%10;
+      int lastNumber=a%10;
+    System.out.println("the third number is: "+thirdNumber);
+     System.out.println("the last number is: "+lastNumber);
+  }
+} 
+ its output=the third number is: 3
+the last number is: 4
+
+14-
+public class assignment2{
+  public static void main(String [] args){
+    int inche=1000;
+    double meters=inche*0.0254;
+    System.out.println(inche+" inch is "+meters+" meters");
+  }
+} 
+its output=1000 inch is 25.4 meters
+
+15-(A)-
+public class assignment1{
+  public static void main(String [] args){
+   int b=7;
+   int c= 15;
+    int temp;
+    temp=b;
+    b=c;
+    c=temp;
+    System.out.println("now the value of b "+b);
+     System.out.println("now the value of c "+c);
+  }
+} 
+its output= now the value of b 15
+now the value of c 7
+
+(B)-
+public class assignment1{
+  public static void main(String [] args){
+   int b=7;
+   int c= 15;
+    b=b+c;
+    c=b-c;
+    b=b-c;
+    System.out.println("now the value of b "+b);
+     System.out.println("now the value of c "+c);
+}
+} 
+its output=now the value of b 15
+now the value of c 7
+
+16-
+public class assignment1{
+  public static void main(String [] args){
+   int a=3456789;
+   int b=(a/60)/24;
+   int years=b/365;
+   int days= b%365;
+   
+    System.out.println(years +" years and "+days+" days ");
+    
+  }
+} 
+
+its output=6 years and 210 days 
+17-
+public class assignment1{
+  public static void main(String [] args){
+    int a=2;
+    int b=5;
+    int c=8;
+    int d=((2*b)*((c-a)/3)+7);
+    System.out.println(d);
+  }
+} 
+its output=27
+
+18-
+public class assignment1{
+  public static void main(String [] args){
+    int id=24321313;
+    int first_right_most_num=id%10;
+    int temp=id/10;
+    int second_right_most_num=temp%10;
+    System.out.println(" first right most number is: "+first_right_most_num);
+    System.out.println(" second right most number is: "+second_right_most_num);
+  }
+} 
+its output=first right most number is: 3
+ second right most number is: 1
+
+19-
+public class assignment1{
+  public static void main(String [] args){
+    int a=8;
+    int h=a/2;
+    int b=3;
+    double c=Math.sqrt(h*h+b*b);
+    double area=((3 *Math.sqrt(3))/2)*c*c;
+    double circumference=6*c;
+    System.out.println("Area is "+area);
+    System.out.println("circumference is "+circumference);
+  }
+} 
+ its output=Area is 64.9519052838329
+circumference is 30.0
+
+20-
+public class assignment1{
+  public static void main(String [] args){
+  double a=4.5;
+  double b=9.5;
+  double c=(int)Math.sqrt(a*a+b*b);
+  double sinA=a/c;
+  double cosA=b/c;
+  double sinB=b/c;
+  double cosB=a/c;
+    System.out.println("sinA = "+sinA);
+    System.out.println("cosA = "+cosA);
+    System.out.println("sinB = "+sinB);
+    System.out.println("cosB = "+cosB);
+  }
+} 
+
+its output=sinA = 0.45
+cosA = 0.95
+sinB = 0.95
+cosB = 0.45
+
+
+
+
+
+
+
+
