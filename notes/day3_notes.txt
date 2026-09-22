@@ -1,0 +1,1 @@
+Day 3: Linux basics, Java array practice, and LeetCode Contains Duplicate #217.
