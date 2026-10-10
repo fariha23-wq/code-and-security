@@ -1,0 +1,223 @@
+//Assignment Task 1
+
+  public static Integer rowRotation( Integer examWeek, String[][] matrix ){
+
+  int n_o_rs  =  matrix.length;
+  
+  int n_o_cs  =  matrix[0].length;
+   
+  int now_row  =  0;
+   
+  int newr_in  =  0;
+   
+  boolean search  =  true;
+   
+  for(int ros=0;ros<n_o_rs;ros++) {
+
+     for(int ni=0;ni<n_o_cs;ni++) {
+
+       if(matrix[ros][ni].equals("AA")){
+
+       now_row=ros;
+       
+       search=false;
+       
+        break;
+       }
+     }
+
+     if(!search){
+     
+      break;
+     }
+
+   }
+   for(int w_k=1;w_k<examWeek;w_k++){
+    
+    for(int far=0;far<n_o_cs;far++){
+     
+        String tmm= matrix[n_o_rs-1][far];
+     
+        for(int ha=n_o_rs-1;ha>0;ha--){
+     
+         matrix[ha][far]=matrix[ha-1][far];
+     }
+    
+       matrix[0][far]=tmm;
+     }
+
+   }
+  
+     for(int meh=0;meh<n_o_rs;meh++){
+  
+    System.out.print("|");
+  
+    int ja=0;
+  
+    while(ja<n_o_cs){
+    
+   System.out.print(matrix[meh][ja]+" | ");
+  
+    ja++;
+   }
+
+       System.out.println();
+   
+         }
+ 
+           newr_in=(now_row+(examWeek-1))%n_o_rs;
+
+          return newr_in+1;
+   
+            }
+
+    
+
+
+//Assignment Task2
+
+    public static Integer[][] compressMatrix( Integer[][] matrix ){
+
+        int g_m_rowws  =  matrix.length;
+
+        int g_m_colls  =  matrix[0].length;
+
+        int f_m_s  =  0;
+
+       Integer [][]com_matrixx  =  new Integer [g_m_rowws/2][g_m_colls/2];
+        
+        for(int ros=  0;ros<g_m_rowws;ros+=  2){
+          
+          for(int ni=  0;ni<g_m_colls;ni+=  2){
+            
+            f_m_s  =  matrix[ros][ni] + matrix[ros][ni+1] + matrix[ros+1][ni] + matrix[ros+1][ni+1];
+          
+            com_matrixx[ros/2][ni/2]=f_m_s;
+          }
+        }
+        return com_matrixx;
+
+    }
+
+    
+
+//Assignment Task3
+
+
+    public static void playGame( Integer[][] arena ){
+
+    int n_o_rr=arena.length;
+
+    int n_o_cc=arena[0].length;
+
+     int sum_o_a_p=0;
+
+ for(int far=0;far<n_o_rr;far++){
+
+   for(int iha=0;iha<n_o_cc;iha++){
+
+     if(arena[far][iha]%50==0 && arena[far][iha]>=50){
+      
+        
+         if(far+1<n_o_rr  &&  arena[far+1][iha]==2){
+         
+          sum_o_a_p+=2;
+
+         }
+
+         if( far-1>=0 && arena[far-1][iha]==2 ){
+
+           sum_o_a_p+=2;
+         }
+
+         if(iha+1<n_o_cc && arena[far][iha+1]==2){
+
+           sum_o_a_p+=2;
+
+         }
+
+         if(iha-1>=0 && arena[far][iha-1]==2){
+           sum_o_a_p+=2;
+         }
+       
+       
+     }
+   }
+ }
+              System.out.print("points gained: "+ sum_o_a_p +" .");
+
+              if(sum_o_a_p>=10){
+
+              System.out.println("Your team has survived the game.");
+          }
+
+        else{System.out.println("Your team is out.");
+            }
+        
+        
+    }
+
+   
+
+
+
+
+ //Assignment 4
+
+    public static void rotateSecret( Character[][] board ){
+
+        int sizee  = board.length;
+
+        int n_o_t  =  sizee/2;
+        int flw = 1;
+        int ly =  n_o_t-1;
+     while(ly>=  0){
+      int far  = 0; 
+       while(far<flw){
+        r_otL(board,ly);
+       far++;
+       }
+     flw++;
+     ly--;
+      }
+
+for(int ru=0;ru<sizee;ru++){
+
+  for(int st=0;st<sizee;st++){
+
+  System.out.print(board[ru][st]);
+  }
+
+}
+
+  System.out.println();
+}
+
+public static void r_otL(Character[][]roshni,int times){
+
+int ro=roshni.length;
+
+int one=times;
+
+int two =ro-1-times;
+
+int pu=0;
+
+while(pu<two-one){
+
+  Character tem=roshni[one][one+pu];
+
+  roshni[one][one+pu]=roshni[two-pu][one];
+
+  roshni[two-pu][one]=roshni[two][two-pu];
+
+  roshni[two][two-pu]=roshni[one+pu][two];
+
+  roshni[one+pu][two]=tem;
+
+ pu++;
+   }
+   }
+           }
+
+    
