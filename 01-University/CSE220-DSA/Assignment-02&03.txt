@@ -1,0 +1,381 @@
+//Assignment 2
+
+
+//1  
+
+
+ public static String checkSimilar( Node building1, Node building2 ){
+        
+       Node frstOn  =  building1;
+
+
+        Node scndOn =  building2;
+        
+     while (frstOn! =  null && scndOn! = null){
+
+          if(!frstOn.elem.equals(scndOn.elem)) {
+          
+           return "Not Similar";
+          }
+
+          frstOn  = frstOn.next ;
+
+
+          scndOn  = scndOn.next ;
+        }
+
+        if(frstOn  ==  null  && scndOn ==  null){
+
+        return "Similar";
+
+        }
+        else{
+
+        return "Not Similar";
+
+
+        }
+
+    }
+
+
+
+//2 
+
+
+public static Node organizeBooks(Node head, Integer[] popularity) {
+
+        
+       if(head  ==  null || head.next  == null){
+
+
+  return head;
+
+  }
+
+ 
+  int rosh  =  0;
+
+   Node ni  =  head;
+
+  while(ni ! = null){
+
+  Node higHH = ni;
+
+    int dumdx  =  rosh;
+
+  Node far =  ni.next;
+
+  int iha  =  rosh+1;
+  
+  
+
+  while(far! =  null){
+
+
+    if(popularity[iha]  >  popularity[dumdx]){
+
+    higHH  =  far;
+
+    dumdx =  iha;
+
+    }
+
+    far  =  far.next;
+
+   iha++ ;
+
+  }
+
+
+  if(higHH!  = ni){
+
+  String tt  =  (String)ni.elem;
+
+  ni.elem  =  higHH.elem;
+
+  higHH.elem =  tt;
+  
+  int meh  =  popularity[rosh];
+
+  popularity[rosh]  =  popularity[dumdx];
+
+  popularity[dumdx]  =  meh;
+
+  }
+
+
+  ni   =  ni.next;
+
+  rosh++;
+
+
+  }
+
+  return head ;
+
+    }
+
+
+
+//3
+
+
+ public static Node alternateMerge( Node head1, Node head2 ){
+        
+   Node far  =  head1;
+
+
+        Node iha  =  head2;
+
+        
+        while(far!  =  null && iha ! =  null){
+        
+        Node rosh  =  far.next;
+
+        Node ni  =   iha.next;
+
+        far.next  =  iha;
+
+        iha.next  =   rosh;
+
+        far  =  rosh;
+
+        iha =  ni;
+
+        }
+       return head1;
+
+    }
+
+
+
+//4
+
+
+public static Node idGenerator(Node head1, Node head2, Node head3) {
+
+
+        Node bf4  =  null;
+
+        Node nnw  =  head1;
+
+
+        while(nnw!  =  null){
+
+
+        Node nn  =  nnw.next;
+
+        nnw.next  =  bf4;
+
+        bf4 =  nnw;
+
+        nnw =  nn;
+
+
+        }
+
+
+        Node ffh  =  bf4;
+
+        Node far2  =  head2;
+
+        Node iha3   =   head3;
+
+
+        while(far2!  =  null && iha3!  = null){
+
+        int ros2  =  (Integer)far2.elem;
+
+        int ni3   =   (Integer)iha3.elem;
+
+        far2.elem  =   (ros2+ni3)%10;
+
+        far2  =  far2.next;
+
+        iha3 =  iha3.next;
+
+        }
+
+        Node tt  =  ffh;
+
+
+        while(tt.next!  =   null){
+
+        tt  =  tt.next;
+
+        }
+
+        tt.next  =  head2;
+
+        return ffh;
+
+  }
+
+
+
+//5
+
+
+
+public static void sumOddAppend(Node dh) {
+
+
+  if(dh ==  null || dh.next  ==  dh){
+
+  return;
+
+  }
+
+  Node far  =  dh;
+
+  Node iha = dh.next;
+
+  int bihsum  =  0;
+
+
+  while(iha!  =  dh){
+
+    int num  = (int)iha.elem;
+
+    if(num%2! = 0){
+
+    bihsum+ =  num;
+
+    far.next  =  iha.next;
+
+    iha  =  far.next;
+
+    }
+
+    else{
+
+
+    far  =  iha;
+
+    iha  =  iha.next;
+    }
+
+  }
+
+  Node nnd  =  new Node(bihsum);
+
+  far.next  =  nnd;
+
+  nnd.next  =  dh;
+
+
+    }
+
+
+
+//6
+
+
+
+ public static void pairJoin(DNode dh1, DNode dh2) {
+
+
+      if(dh1 ==  null || dh2  ==  null){
+
+      return;
+
+      }
+
+
+      DNode far  =  dh1.next;
+
+      DNode iha  =  dh2.next;
+
+
+      while(far!  =  null && iha !  =  null){
+
+      DNode nn =  far.next;
+
+
+      DNode nm  =  iha.next;
+
+      far.next  =  iha;
+
+      iha.prev  =  far;
+
+      iha.next = nn;
+
+
+      if(nn!  =  null ){
+
+      nn.prev =  iha;
+
+      }
+    
+      far  =  nn;
+
+      iha  =  nm;
+      
+      }
+      
+      DNode ll  =  dh1;
+
+
+      while(ll.next!  =  null){
+
+      ll  =  ll.next;
+
+      }
+
+      ll.next  =  dh1;
+
+      dh1.prev  =  ll;
+
+    }
+
+
+
+
+//7
+
+
+
+public static void rangeMove(DNode dh, int start, int end) {
+
+
+      if(dh  ==  null || dh.next  == dh){
+
+
+      return;
+
+      }
+
+      DNode tt  =  dh.prev;
+
+      DNode noWn  =  dh.next;
+
+     
+      while(noWn!  =  dh){
+
+
+      DNode nxnd  =  noWn.next;
+
+
+      if((int)noWn.elem  >=  start &&(int)noWn.elem  <=   end){
+
+      noWn.prev.next  =  noWn.next;
+
+      noWn.next.prev  =  noWn.prev;
+
+      noWn.prev  =  tt;
+
+      noWn.next  =  dh;
+
+      tt.next  =  noWn;
+
+      dh.prev  =  noWn;
+
+      tt  =  noWn;
+    
+      }
+
+      noWn =  nxnd;
+     
+      }
+    }
