@@ -1,0 +1,312 @@
+//Assignment 4 part-1
+
+
+//1
+
+
+ private int hashFunction( Integer key ){
+       
+      return ( key + 3 ) % 6 ;
+
+        
+    }
+
+
+
+public void remove( Integer key ) {
+
+      
+      int dX  =  hashFunction(key) ;
+
+      
+      PairNode nOw  =  ht[dX] ;
+
+      
+      PairNode bFr  =  null;
+
+      
+      while  (nOw !=   null)  {
+
+        
+        if(nOw.key.equals(key))  {
+          
+          if(bFr  ==  null) {
+            
+            ht[dX]  =  nOw.next ;
+      
+    }
+          else  {
+            
+            bFr.next  =  nOw.next ;
+            
+          }
+          
+          return ;
+          
+        }
+        
+        bFr  =  nOw ;
+        
+        nOw  =  nOw.next ;
+
+        
+      }   
+        
+
+}
+
+
+//2
+
+
+ private int hashFunction( String key ){
+        
+      if ( key.length()  %  2  !=  0)
+        
+        key  +=  "N"  ;
+      
+      int tot  =  0  ;
+      
+      for  ( int ros  = 0 ; ros  <key.length() ;  ros+= 2) {
+      
+      int  ni  =  (int)  key.charAt(ros)  ;
+      
+      int far  =  (int)  key.charAt  (ros+1)  ;
+      
+      int iha  =  ni *  1000  + far  ;
+      
+      tot  += iha  ; 
+      
+      
+      }
+      
+      return  tot % ht.length  ;
+    }
+
+
+
+public String searchHashtable( Object[] keyValuePair ){
+       
+      String kk  =  (String) keyValuePair[0]  ;
+      
+      int dX  =  hashFunction( kk )  ;
+      
+      PairNode nOw  =  ht[dX]  ;
+      
+      while( nOw  !=  null )  {
+        
+        if  (nOw.key.equals( kk ))  {
+          
+          return "Found" ;
+          
+        }
+        
+        nOw  =  nOw.next  ;
+        
+      }
+      
+      return  "Not Found"  ;
+      
+      
+      
+    }
+
+//Assignment 4 part-2
+
+
+//1
+
+
+public static Stack conditionalReverse(Stack stack) {
+        
+      
+      Stack  ros  =  new  Stack ()  ;
+      
+      Stack ni  =  new Stack  ()  ;
+      
+      while  (!  stack.isEmpty()  )  {
+        
+        ros.push  (stack .pop () ) ;
+        
+      }
+      
+      Integer  far  =  null  ;
+      
+      while (! ros .isEmpty () ){
+        
+        int iha  =  ros.pop()  ;
+        
+        if  (far  ==  null  || iha  !=  far  )  {
+          
+          ni.push (iha)  ;
+          
+        }
+        
+        far  =  iha  ;
+        
+      }
+      
+      return ni  ;
+        
+        
+    }
+
+
+//2
+
+ public static String hotPotato(String[] players, int k) {
+
+
+       LinkedListQueue  qu  =  new   LinkedListQueue()  ;
+      
+      for  ( int ros  =  0  ; ros < players.length  ;  ros++ )  {
+        
+        qu.enqueue (players [ros] ) ;
+        
+      }
+      
+      while  (qu. front  != qu. rear )  {
+      
+        
+        for( int ni  =  1  ; ni <  k  ; ni  ++)  {
+          
+          Object  ply  =  qu.dequeue()  ;
+          
+          qu.enqueue(ply ) ;
+          
+        }
+        
+        Object  rMv  =  qu.dequeue ()  ;
+        
+        System.out.println (rMv  + " eliminated ") ;
+        
+      }
+      
+      return (String)qu.peek();
+      
+      
+      
+    }
+
+
+// 3
+
+
+
+
+    public static void dance_pair(Stack stk) {
+
+        Queue mQu  =  new  Queue()  ;
+        
+        Queue  fQu  =  new  Queue ()  ;
+        
+        int  pt  =  1  ;
+        
+        while  (!stk.isEmpty () ) {
+          
+          Dancer  ros  =  (Dancer ) stk.pop () ;
+          
+          if (stk.isEmpty()) {
+            
+            if( ros.getGender()  ==  'M')  
+              
+              mQu.enqueue(ros)  ;
+            
+            else    fQu.enqueue(ros)  ;
+            
+            break  ;
+            
+          }
+          
+          Dancer ni  =  (Dancer ) stk.pop();
+          
+          if (ros.getGender() !=  ni.getGender()) {
+            
+            System.out.println("#" + pt +" "+ ros + " & " +ni ) ;
+            
+            pt++  ;
+            
+          }
+          
+          else if (ros.getGender()  ==  'F' ) {
+            
+            fQu.enqueue(ros) ;
+            
+            stk.push(ni) ;
+            
+          }
+          
+          else {
+            
+            if(!fQu.isEmpty()) {
+              
+              Dancer fMl  =  (Dancer) fQu.dequeue() ;
+              
+              System.out.println ("#" +pt +" " + fMl +" & "+ ros) ;
+              
+              pt++ ;
+              
+              stk.push (ni) ;
+              
+            }
+            else {
+              
+              mQu.enqueue(ros) ;
+              
+              stk.push(ni)  ;
+              
+            }
+            
+          }
+          
+        }
+        
+        while (!mQu.isEmpty() && !fQu.isEmpty ())  {
+          
+          Dancer mL  =  (Dancer)mQu.dequeue() ;
+          
+          Dancer fMl  =  (Dancer)fQu.dequeue();
+          
+          System.out.println("#" + pt+ " "+ fMl +" & "+ mL ) ;
+          
+          pt++;
+          
+        }
+        
+        if(!fQu.isEmpty()) {
+          
+          System.out.println("Unpaired Female: ");
+          
+          while (!fQu.isEmpty()) {
+            
+               System.out.print (fQu.dequeue()) ;
+               
+               if (!fQu.isEmpty())
+                 
+                 System.out.print(" ,")  ;
+          }
+          
+           System.out.println ();
+           
+        }
+        
+        if(!mQu.isEmpty()) {
+          
+          System.out.println("Unpaired Male: ") ;
+          
+          while(!mQu.isEmpty() ) {
+            
+            System.out.print (mQu.dequeue()) ;
+            
+            if(!mQu.isEmpty () )
+              
+                System.out.print(" ,")  ;
+          }
+          
+                System.out.println ();
+                
+        }
+ 
+    }
+
+   
