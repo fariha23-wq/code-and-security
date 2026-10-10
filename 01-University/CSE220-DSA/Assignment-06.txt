@@ -1,0 +1,693 @@
+//MinHeap
+
+
+    public void insert(int value) 
+
+
+    
+    {
+      
+
+
+      if   (  size  ==  capacity   )
+
+  
+      
+      {
+        
+        return    ;  
+
+
+        
+      }
+
+      
+      int rosh   =   size     ;
+      
+      
+       heap[rosh]   =   value ;
+       
+         
+         size++  ;
+       
+       
+       heapifyUp   (rosh)    ;
+
+
+       
+       
+    }
+
+
+
+    public Integer extractMin() 
+
+    
+    {
+        if  (  size  ==  0  )  
+
+
+          
+        {
+          
+         
+              return   null    ;
+
+
+          
+        }
+
+
+        
+        int mehzain   =    0    ;
+
+        
+        int binval  =  heap[mehzain]   ;
+        
+        
+        int nival   =   size  -  1    ;
+
+
+        
+        heap  [  mehzain  ]  =  heap [  nival  ]    ; 
+        
+        
+        size  =  nival  ;
+        
+        
+        heapifyDown  (  mehzain  )  ;
+
+        
+        return   binval   ;
+        
+    
+    }
+
+    public Integer peek() 
+
+
+    
+    {
+      
+      if (size   ==    0)  
+
+         
+      {
+
+
+        return    null    ;
+        
+        
+      }
+      
+      else   
+        
+      {
+        
+        int   rus    =    heap  [0]   ;
+        
+        
+        return   rus   ;
+        
+        
+      }
+         
+    }
+
+  
+    private void heapifyUp(int index)   
+
+    
+    { 
+         
+      
+         while  (  index  >  0 )
+
+           
+         {
+
+
+           
+           int   iriin   =   (index  -  1  )  /  2       ;
+
+
+           
+           
+           if   ( heap  [  iriin  ]   <=   heap  [  index  ]  ) 
+ 
+             
+           {
+             
+             
+           return   ;
+             
+             
+           }
+           
+           
+           
+            int   roshni   =   heap [  iriin  ]   ;
+
+           
+           
+           heap  [  iriin  ]   =    heap   [ index   ]    ;
+
+           
+           
+           heap  [  index  ]    =    roshni    ;
+           
+           
+           
+           index   =   iriin    ;
+           
+           
+         }
+             
+       
+    }
+    private void heapifyDown(int index)
+    
+    
+    {  
+      
+       int   far   =    2  *  index   +  1    ;
+
+       
+       int    iha    =   2  *  index   +  2   ;
+       
+       
+       int   ros    =   index    ;
+       
+       
+       if   (   far    <   size   &&  heap[  far  ]   <    heap   [ ros  ]  )
+         
+      
+
+         {
+         
+         
+         ros   =   far   ;
+         
+         
+       }
+       
+       
+       if   (  iha   <  size    &&   heap  [ iha  ]    <    heap  [ ros  ]   )
+
+         
+      
+       {
+
+
+         ros    =    iha    ;
+         
+         
+       }
+       
+       
+       if   (   ros   !=    index   )   
+         
+         
+        {
+         
+         int  ali   =   heap  [ index  ]   ;
+         
+        
+         
+         heap  [ index  ]    =   heap   [  ros  ]   ;
+
+         
+         heap   [  ros  ]    =   ali    ;
+         
+         
+         
+         heapifyDown  (  ros  )    ;
+         
+         
+         
+       }
+           
+    
+        
+    }
+
+    public boolean isEmpty()
+    
+    {
+      
+      
+      if   (   size   ==   0   )  
+      {
+        
+        return    true    ;
+        
+      }
+      
+      else  
+         
+      { 
+        
+        return    false     ;
+        
+        
+      }
+        
+    }
+
+
+
+
+
+//task4  
+
+
+
+
+public  class   task4    {
+
+
+
+public    static   Integer  []    solvenumfour (  int  []    tasks  ,   int   m  )   {
+
+  
+  
+  MinHeap   heap   =   new  MinHeap  ( m )     ;
+  
+  
+   int   puss  =   0   ;
+   
+   
+   while   (  puss    <   m  )    {
+
+
+     
+     heap.insert  (  0  )   ;
+     
+     
+     puss ++    ;
+     
+
+   }
+
+   
+   int   onn   =  0   ;
+   
+   
+   while  (  onn  <  tasks.length    )  
+
+
+ {
+     
+     
+     int   z   =   tasks [ onn  ]   ;
+     
+     int    mm    =   heap.extractMin()    ;
+     
+     
+     heap.insert   (  mm  +  z  )     ;
+     
+     
+     
+     onn++     ;
+     
+     
+   }
+   
+   
+   return     heap.getHeapArray ()    ;
+   
+}
+
+
+}
+
+
+
+//5
+
+
+
+public class   task5     {
+
+
+public    static   int  []    tasknumfive   (  int    []    nums  ,   int  k  )   {
+
+
+  
+   MaxHeap    heap   =   new    MaxHeap  (  nums.length   )      ;
+   
+   
+   int    ros    =     0   ;
+
+
+   
+   while   (  ros    <   nums.length    )   
+     
+     
+   {
+     
+     int    ni   =     nums  [  ros  ]   ;
+     
+     
+     heap.insert  ( ni  );
+     
+     
+     
+     ros ++    ;
+     
+   }
+   
+   
+   int   []     answer     =    new     int  [ k ]   ;
+
+
+   
+    int    meh   =   0  ;
+    
+    
+    while   (    meh   <   k ) 
+
+
+    {
+      
+      
+      answer  [ meh  ]   =   heap.extractMax  ()     ;
+      
+      
+      meh ++     ;
+      
+      
+    }
+    
+    return     answer    ;
+    
+    
+}
+
+
+
+}
+
+
+
+//6
+
+
+
+
+public class tashsix    {
+
+
+public    static   String   []   tasknumsix   ( String []  naam   ,  int   []  priyo   )      {
+
+
+  
+  MaxHeap    heap    =   new   MaxHeap   ( naam.length )     ;
+
+  
+  
+  int   meh    =   0   ;
+
+
+  
+  while    (   meh    <  naam.length   )  
+  
+ {
+    
+    
+    heap.insert (   new   Task   (naam [  meh  ]  ,   priyo   [  meh  ]  ) )   ;
+    
+    
+    meh ++   ;
+    
+    
+    
+  }
+
+
+  
+  String []    ans   =   new String   [  naam.length ]     ;
+  
+  
+  
+  int    jabin    =   0   ;
+
+
+  
+  while  (jabin   <    naam.length    )    {
+    
+    
+    ans   [ jabin  ]   = heap . extractMax()   .name  ;
+    
+    
+    jabin++    ;
+    
+  }
+  
+  
+  return   ans    ;
+  
+}
+
+  }
+
+
+
+
+
+public class     Task  {
+  
+  String name  ;
+  
+  
+  int priority    ;
+  
+  
+  
+Task   (String    name    ,      int    priority  )  
+ 
+  {
+    
+    this.name   =    name   ;
+    
+    
+    this.  priority     =   priority  ;
+    
+    
+  }
+}
+
+
+//MaxHeap
+
+public void insert(Task value) 
+    
+    {
+      
+      if  (  size  ==  capacity   )  
+      
+      {
+        
+        return ;  
+        
+      }
+      
+      int rosh  =  size   ;
+      
+      
+       heap[rosh]   =   value ;
+       
+         
+         size++  ;
+       
+       
+       heapifyUp   (rosh)    ;
+       
+       
+    }
+
+    public Task extractMax() 
+    
+    {
+        if(  size  ==  0  )  
+          
+        {
+          
+          return null  ;
+          
+        }
+        
+        int mehzain   =  0  ;
+        
+        Task binval  =  heap[mehzain]   ;
+        
+        
+        int nival   =   size  -  1  ;
+        
+        heap  [  mehzain  ]  =  heap [  nival  ]  ; 
+        
+        
+        size  =  nival  ;
+        
+        
+        heapifyDown  (  mehzain  )  ;
+        
+        return   binval   ;
+        
+    
+    }
+
+    public Integer peek() 
+    
+    {
+      
+      if (size   ==    0)  
+         
+      {
+        return  null  ;
+        
+        
+      }
+      
+      else   
+        
+      {
+        
+     return  heap  [0]   ;
+        
+        
+      }
+         
+    }
+
+  
+    private void heapifyUp(int index)   
+    
+    { 
+         while  (  index  >  0 )
+           
+         {
+           
+           int   iriin   =   (index  -  1  )  /  2  ;
+           
+           
+           if   ( heap  [  iriin  ]  .priority >=   heap  [  index  ] .priority )  
+             
+           {
+             
+             return   ;
+             
+             
+           }
+           
+           
+           Task   roshni   =   heap [  iriin  ]   ;
+           
+           
+           heap  [  iriin  ]   =    heap   [ index   ]    ;
+           
+           
+           heap  [  index  ]    =    roshni    ;
+           
+           
+           
+           index   =   iriin    ;
+           
+           
+         }
+             
+       
+    }
+    private void heapifyDown(int index)
+    
+    
+    {  
+      while (true)      
+      {
+      
+       int   far   =    2  *  index   +  1    ;
+       
+       int    iha    =   2  *  index   +  2   ;
+       
+       
+       int   ros    =   index    ;
+       
+       
+       if   (   far    <   size   &&  heap[  far  ] .priority  >    heap   [ ros  ] .priority )
+         
+       {
+         
+         ros   =   far   ;
+         
+         
+       }
+       
+       
+       if   (  iha   <  size    &&   heap  [ iha  ]  .priority  >    heap  [ ros  ]  .priority )
+         
+      
+       {
+         ros   =   iha    ;
+         
+         
+       }
+       
+       
+       if   (   ros   !=    index   )   
+         
+       {
+         
+        Task  ali   =   heap  [ index  ]   ;
+         
+        
+         
+         heap  [ index  ]    =   heap   [  ros  ]   ;
+         
+         
+         
+         heap   [  ros  ]    =   ali    ;
+         
+         
+         
+        index  =   ros     ;
+         
+         
+         
+       }
+       
+       
+       else  
+         
+       {
+         
+         
+         break  ;
+         
+       }
+           
+    
+        
+    }
+
+    public boolean isEmpty()
+    
+    {
+      
+      
+      if   (   size   ==   0   )  
+      {
+        
+        return    true    ;
+        
+      }
+      
+      else  
+         
+      { 
+        
+        return    false     ;
+        
+        
+      }
+        
+    }
