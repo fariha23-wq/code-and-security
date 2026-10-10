@@ -1,0 +1,541 @@
+//2(a)
+
+
+
+public class Assignmrnttwoa {
+
+    
+
+
+public static int  maxWeightVertex  (  int   []   []   graph )  {
+
+
+  int    v   =   graph.length     ;
+
+
+  int   mehza   =   0  ;
+  
+  
+  int    bin    =  Integer.MIN_VALUE  ;
+  
+  
+  int    ros    =   0   ;
+
+  
+  while   (ros   <     v    )    
+    
+  {
+    
+    int jjj    =   0    ;
+    
+    
+    for    (  int    ni  =  0  ; ni  <  v   ;  ni  ++  )
+       
+    {
+      
+      jjj    +=     graph  [ ros ]  [ ni ]    ;
+      
+      
+    }
+    
+    
+    if   (    jjj   >    bin  )  
+      
+    {
+      
+      bin   =   jjj     ;
+      
+      
+      mehza     =    ros     ;
+      
+    }
+    
+    
+    ros   ++   ;
+  
+  }
+  
+  
+  return   mehza    ;
+
+
+}
+
+
+
+}
+
+
+//2b
+
+public   class   Assignmenttwob   {
+
+
+public    static   int   maxwv   (  int  []  []   graph  ,  int    []   size   )    {
+
+
+  int  maxfar    =    -1    ;
+
+
+int   mvvee     =   0     ;
+
+
+int ll    =    size.length   ;
+
+
+int   ros    =   0   ;
+
+
+while     (   ros   <    ll      )    
+
+
+  {
+
+
+int   tot   =    0    ;
+
+
+
+int  ni      =    0    ;
+
+
+
+while   (     ni    <   size  [ros   ]     )    {
+
+
+tot   +=    graph   [ros ]    [  ni  ]    ;
+
+
+ni++     ;
+
+
+}
+
+
+
+if  (     tot    >    maxfar   )    {
+
+
+maxfar    =    tot      ;
+
+
+mvvee     =    ros     ;
+
+
+
+}
+
+ros++      ;
+
+}
+
+
+return   mvee    ;  
+
+
+}
+
+
+}
+
+
+//  3a
+
+
+public    class    Assignment3a        {
+
+
+
+public    static    int  []    sdm    (  int   []  []   graph   )   {
+
+int   sz   =    graph .length      ;
+
+
+
+int   mdgree     =     -1       ;
+
+
+
+int     mxdgreev       =      0    ;
+
+
+
+int   mwg     =     -1    ;
+
+
+int   mwgv      =       0    ;
+
+
+
+int     ros    =    0   ;  
+
+
+while   ( ros    <   sz     )  {
+
+
+int       odd     =   0     ;
+
+
+
+int      ws    =     0   ;
+
+
+
+int   ni   =    0    ;
+
+
+while  (   ni    <sz    )    {
+
+
+
+if      (   graph  [ros ]  [ni  ]    >  0    )     {
+
+
+odd++      ;
+
+
+ws     +=     graph[ros]   [ni]     ;
+
+
+}
+
+
+ni++     ;
+
+
+}
+
+
+
+
+if   (  odd   >   mdgree    )    {
+
+
+
+
+mdgree      =     odd     ;
+
+
+mxdgreev     =    ros     ;
+
+
+
+}
+
+
+
+if    (     ws     >    mwg     )   {
+
+
+mwg      =    ws     ;
+
+
+mwgv       =    ros    ;
+
+
+}
+
+
+ros  ++    ;
+}
+
+
+return      new   int     []    {   mxdgreev     ,    mwgv     }     ;
+
+}
+
+
+}
+
+
+//3b
+
+
+
+public   class    Assignment   3b   {
+
+
+public    static     int    []     sdl    (int     [] []    graph    ,   int    []    addup  )    {
+
+
+int  mdv     =     0    ;
+
+
+int   mwv     =     0    ;
+
+
+
+int   md     =   -1     ;
+
+
+int   mw    =    -1     ;
+
+
+
+int       ros     =   0    ;
+
+
+
+while    (  ros <     addup.length    )    {
+
+
+int    dgr     =    addup  [ros ]      ;
+
+
+int     tot     =    0    ;
+
+
+
+int     ni     =    0   ;
+
+
+
+while   (   ni    <   addup[ros ]    )      {
+
+
+
+tot   +=     graph   [ros]   [ni  ]       ;
+
+ni++    ;
+
+
+}
+
+
+if    (   dgr     >   md      )    {
+
+
+md     =    dgr     ;  
+
+
+mdv     =    ros      ;
+
+
+
+}
+
+
+if     (   tot    >  mw     )   {
+
+mw    =   tot    ;   
+
+mwv     =     ros     ;
+
+
+}
+
+
+ros++     ;
+
+
+}
+
+return    new int    []   {  mdv ,   mwv   }   ;
+
+
+
+}
+
+
+}
+
+
+//4a
+
+
+
+public   class    Assignmentfoura  {
+
+
+public    static     int    [][]     ctoud     (int     [][]    graph     )   {
+
+
+int    sz    =    graph .length    ;
+
+
+
+int   [] []   ud    =    new    int   [sz][sz]     ;
+
+
+
+int   ros   =     0   ;  
+
+
+while   (   ros  <   sz   )  {
+
+
+int ni  =   0   ;
+
+while   (  ni   <  sz   ) {
+
+
+if  (  graph   [ros]  [ni ]    !=     0  )  {   
+
+
+
+ud[ros]    [ni   ] +=      graph   [ros]   [ni]       ;
+
+
+ud   [ros]  [ni]     +=      graph      [ros]   [ni]     ;
+
+
+  }
+ni  ++     ;
+
+
+}  
+
+
+ros++      ;
+
+}
+
+return  ud      ;
+
+}
+
+
+}
+
+
+//4b
+
+
+
+public    class    Assignmentfourb   {
+
+
+public    static      void      tundl     (int      [][]    adjacencylist   ,     int   [][]    graph   ,     int   []   addup   ,     int   [][]    newadjacencylist    ,   int   [][]     newg   ,  int   []    newadd    )  {
+
+
+
+
+int    sz    =    addup.length     ;
+
+
+
+int    [][]     mou    =    new   int  [sz][sz]     ;
+
+
+
+ini ros     =    0    ; 
+
+
+while    (ros     <   sz    ) {
+
+int      ni     =   0   ;
+
+
+while   (    ni   <addup[ros]      )   {
+
+
+
+int      far     =    adjacencylist   [ros]   [ni  ]       ;
+
+
+
+mou[ros] []   +=   graph  [ros]   [ni ]    ;
+
+
+
+ni     ++    ;  
+
+}
+
+
+ros ++    ;
+
+
+}
+
+
+for   (int     meh   =0   ;    meh   <sz    ;    meh   ++  )  {
+
+
+
+int    za   = meh   +1     ;
+
+
+while  (   za   <   sz   )   {
+
+
+
+int    wg  =   mou[meh]  [za]    +   mou   [za][meh]     ;
+
+
+
+if   (wg      >0    )   {
+
+
+newadjacencylist   [meh    ]   [newaddup  [meh  ]]      =   za       ;
+
+
+newgraph    [meh]  [newaddup  [meh  ]]     =     wg      ;
+
+
+newaddup  [meh]    ++    ;
+
+
+
+newadjacencylist   [za][newaddup[za]]      =     meh     ;
+
+
+
+newgraph  [za]  [newaddup  [za]]       =     wg    ;
+
+
+
+newaddup[za]    ++    ;
+
+
+}
+za++    ;
+
+
+}
+
+}
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
